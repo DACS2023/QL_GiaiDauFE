@@ -1,0 +1,23 @@
+﻿@model QuanLyGiaiDau.Models.DoiDau
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Đội Đấu</h2>
+<script>
+    function Start() {
+        Get_issn();
+        /*Get_loaisanpham(render_lsp);*/
+    }
+    Start();
+    function Get_issn(callback) {
+        fetch("https://localhost:44303/api/DoiDaus")
+            .then(function (res) {
+                console.log(res.json());
+
+            })
+            .then(callback)
+    }
+</script>

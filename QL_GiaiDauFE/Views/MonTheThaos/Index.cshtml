@@ -1,0 +1,22 @@
+﻿@model QuanLyGiaiDau.Models.MonTheThao
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script>
+    function Start() {
+        Get_issn();
+        /*Get_loaisanpham(render_lsp);*/
+    }
+    Start();
+    function Get_issn(callback) {
+        fetch("https://localhost:44303/api/MonTheThaos")
+            .then(function (res) {
+                console.log(res.json());
+
+            })
+            .then(callback)
+    }
+</script>

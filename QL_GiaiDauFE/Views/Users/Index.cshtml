@@ -1,0 +1,28 @@
+﻿@model IEnumerable<QL_GiaiDauFE.Models.User>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DANH SÁCH USER</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<script>
+    function Start() {
+        Get_issn();
+        /*Get_loaisanpham(render_lsp);*/
+    }
+    Start();
+    function Get_issn(callback) {
+        fetch("https://localhost:44303/api/Users")
+            .then(function (res) {
+                console.log(res.json());
+
+            })
+            .then(callback)
+    }
+</script>
